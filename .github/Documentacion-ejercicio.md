@@ -463,11 +463,14 @@ Se oberseva en que entorno estamos.
 
 Al estar en UAt no se tienen que ejecutar los tests y además no necesita de aprobadores ya que no ha sido configurado para este entorno.
 
-![image](https://github.com/user-attachments/assets/bebaf53f-048e-4775-baa6-35afb1dd4a03)
+[![image](https://github.com/user-attachments/assets/bebaf53f-048e-4775-baa6-35afb1dd4a03)](https://github.com/stemdo-labs/ghactions-weekly-exercise-claudiatn/actions/runs/11316106397)
 
 Se van ejecutando los pasos del tag de la imagen, la construcción y la subida con la nueva versión.
 
-![image](https://github.com/user-attachments/assets/e284be4a-0224-4aee-b565-5cb758500c96)
+![image](https://github.com/user-attachments/assets/2d462848-0aee-43fa-8842-d402df76ffda)
+
+![image](https://github.com/user-attachments/assets/ea5ed7cb-5fea-47ce-8f0f-626e2240cf06)
+
 
 Se comprueba en DockerHub que  la imagen se ha subido correctamente.
 
@@ -475,12 +478,13 @@ Se comprueba en DockerHub que  la imagen se ha subido correctamente.
 
 Se puede observar que el despligue en UAT se ha ejecutado con éxito.
 
-![image](https://github.com/user-attachments/assets/c45a6982-4903-4432-9bc1-645a2f9617f8)
+![image](https://github.com/user-attachments/assets/c1c70eac-492c-4938-bd57-7cfa2618e141)
 
 
 Este es el flujo que sigue el despliegue en UAT si todo ha sucedido correctamente.
 
-![image](https://github.com/user-attachments/assets/a441b55d-c17a-486a-b4f8-07318d0d787b)
+![image](https://github.com/user-attachments/assets/bf0cb347-08f1-47a4-9067-e9b5f9bce791)
+
 
 
 
