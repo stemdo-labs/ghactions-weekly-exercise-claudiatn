@@ -17,7 +17,7 @@ Estas variables y secretos serán utilizados más adelante para autenticar la co
 
 ![image](https://github.com/user-attachments/assets/d3da434d-97b2-4372-9aa1-8e6ee8ddae19)
 
-## 4. Creación de un Action para extraer la versión
+## 3. Creación de un Action para extraer la versión
 
 Este action extrae la versión de la aplicación en el archivo package.json y la devuelve en una salida (output). La ruta del action es .github/actions/version
 
@@ -40,7 +40,7 @@ Este action extrae la versión de la aplicación en el archivo package.json y la
                 echo  "version=${version}" >> $GITHUB_OUTPUT
 
 
-## 5. Creación de un Action para extraer el nombre de la aplicación
+## 4. Creación de un Action para extraer el nombre de la aplicación
 
 Este action extrae el nombre de la aplicación en el archivo package.json y la devuelve en una salida (output). La ruta del action es .github/actions/name-app
 
@@ -62,7 +62,7 @@ Este action extrae el nombre de la aplicación en el archivo package.json y la d
                 echo "App name: $app_name"
                 echo "app_name=${app_name}" >> $GITHUB_OUTPUT
 
-## 6. Creación de un Action para generar el tag de la imagen
+## 5. Creación de un Action para generar el tag de la imagen
 
 Es el Action que hace uso de los actions anteriores ( versión y nombre de la aplicación ) para crear la etiqueta con el siguiente formato:
 
@@ -99,7 +99,7 @@ El action se encuentra en .github/actions/taggear_image.
 
 
 
-## 7. Creación de un action para la conficuración del entrono
+## 6. Creación de un action para la conficuración del entrono
 
 Su objetivo es definir el entorno. Para ello dependiendo de la rama en la que este, main o development, se le asigna un valor a la
 variable environment de Production o UAT (Son los entornos anteriormente configurados en el repositorio).
@@ -141,7 +141,7 @@ Se encuentra en .github/actions/environment.
             run: echo "El entorno es  ${{ steps.set-env.outputs.environment }}"
 
 
-## 8. Cracción de un Action para los tests de la aplicación:
+## 7. Cracción de un Action para los tests de la aplicación:
 
 Este action ejecuta los test de la aplicación. Se encuentra en  .github/actions/tests-app
 
@@ -164,7 +164,7 @@ Este action ejecuta los test de la aplicación. Se encuentra en  .github/actions
                 echo "Ejecutando cobertura de código en producción"
 
 
-## 9. Creación de un Workflow principal para generar todo el flujo CI/CD
+## 8. Creación de un Workflow principal para generar todo el flujo CI/CD
 
 Luego dentro de mi carpeta workflow se encuentran tres archivos: 
 
@@ -235,7 +235,7 @@ Este worflow se va a ejecutar cuando se realice un push en las ramas main o deve
               tag: ${{ needs.call-workflow-ci.outputs.tag }}
             secrets: inherit 
       
- ## 10. Workflow CI
+ ## 9. Workflow CI
 
   Este workflow de integración continua.
   
@@ -338,7 +338,7 @@ Este worflow se va a ejecutar cuando se realice un push en las ramas main o deve
              
   
     
-## 11. Workflow CD
+## 10. Workflow CD
 
 Este workflow se encarga del despliegue continuo, el cual descarga una imagen Docker de DockerHub y la despliega en un entorno.
 Va a recibir dos entradas, el entorno para saber donde tiene que realizar el despligue y el tag para saber cual es la imagen de Docker que necesita descargar.
@@ -395,16 +395,16 @@ Se compone de un job deploy que establece los siguientes pasos:
 
 
         
- ## 12. Aprobadores de entorno:
+ ## 11. Aprobadores de entorno:
 
 Configuro los reviewers para el ambiente de production añadiendome como revisora.
 
 ![image](https://github.com/user-attachments/assets/7bbb9487-2244-4730-a965-7beb4f9c4a50)
 
         
-  ## 13.Pruebas:
+  ## 12.Pruebas:
 
-  ## 13.1 Desplegar en Production:
+  ## 12.1 Desplegar en Production:
 Cambio la versión manualmente de mi package.json a version: 1.0.0 y al hacer commit automaticamente generará el push.
 
 Comprobamos que el entorno que nos esta cogiendo es el de production ya que lo hemos ejecutado desde la rama main:
@@ -450,7 +450,7 @@ El flujo ha sido correctamente ejecutado.
 ![image](https://github.com/user-attachments/assets/4a224d25-0fd4-495e-b2f3-871af73d2c00)
 
 
-  ## 13.2 Desplegar en UAT:
+  ## 12.2 Desplegar en UAT:
 
 Ahora desde el entorno de UAT cambio la versión manualmente de mi package.json a version: 1.0.1 y al hacer el push (en development) comenzará el flujo.
 
