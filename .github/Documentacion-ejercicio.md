@@ -458,7 +458,8 @@ Ahora desde el entorno de UAT cambio la versión manualmente de mi package.json 
 
 Se oberseva en que entorno estamos.
 
-![image](https://github.com/user-attachments/assets/05df02f9-0f74-4002-93b3-4fb64e773ea2)
+![image](https://github.com/user-attachments/assets/cbd396af-0510-48c4-a0d8-7ea96ba69f09)
+
 
 Al estar en UAt no se tienen que ejecutar los tests y además no necesita de aprobadores ya que no ha sido configurado para este entorno.
 
